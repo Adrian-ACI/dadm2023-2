@@ -1,7 +1,11 @@
 package com.example.tictactoe;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +18,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     TextView textoVictoria;
+    Button salir;
     Integer[] botones;
     int[] tablero = new int[]{
             0, 0, 0,
@@ -33,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         textoVictoria = (TextView) findViewById(R.id.textwin);
         textoVictoria.setVisibility(View.INVISIBLE);
+        salir = findViewById(R.id.salirbtn);
 
         botones = new Integer[]{
                 R.id.b1, R.id.b2, R.id.b3,
@@ -137,5 +143,27 @@ public class MainActivity extends AppCompatActivity {
             nuevoEstado=2;
         }
        return nuevoEstado;
+    }
+
+    // cerrar app
+    @SuppressLint("")
+    public void salir(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("¿Quieres salir del juego?").setPositiveButton("Si", new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int which){
+                Intent intent =new Intent(Intent.ACTION_MAIN);
+                intent.addCategory(Intent.CATEGORY_HOME);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        }).setNegativeButton("Cancelar", new DialogInterface.OnClickListener(){
+            @Override
+            public void onClick(DialogInterface dialog, int which){
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+        //finishAffinity();
     }
 }
