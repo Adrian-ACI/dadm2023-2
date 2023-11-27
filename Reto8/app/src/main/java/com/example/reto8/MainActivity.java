@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         txtBuscar = findViewById(R.id.txtBuscar);
         listaEmpresas = findViewById(R.id.listaEmpresas);
         listaEmpresas.setLayoutManager(new LinearLayoutManager(this));
+
         DbEmpresas dbEmpresas = new DbEmpresas(MainActivity.this);
 
         listaArrayEmpresas = new ArrayList<>();
