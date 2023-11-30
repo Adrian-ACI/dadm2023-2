@@ -8,17 +8,6 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/txtLatitud"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
-
-    <EditText
-        android:id="@+id/txtLongitud"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
 
     <fragment
         android:id="@+id/map"
@@ -28,5 +17,29 @@
         map:cameraZoom="10"
         map:uiRotateGestures="true"
         map:uiZoomControls="true"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Latitud" />
+
+    <EditText
+        android:id="@+id/txtLatitud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Longitud" />
+
+    <EditText
+        android:id="@+id/txtLongitud"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"/>
 
 </LinearLayout>
